@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let barbearia of barbeariasConsulta" class="col-4" apDarkenOnHover>
+      <div class="card" >
+        <div class="image">
+          <img src="https://logo.criativoon.com/wp-content/uploads/2016/07/logotipo-de-barbearia.png" width="100%">
+        </div>
+        <div class="text">
+          <div class="fab">&#43;</div>
+          <h3>{{barbearia.nome}}</h3>
+          <p>{{barbearia.endereco.complemento}}, {{barbearia.endereco.numero}}</p>
+          <p>{{barbearia.endereco.cidade}} - {{barbearia.endereco.uf}}</p>
+          <p>{{barbearia.endereco.cep}}</p>
+          <h2 *ngIf="barbearia?.descricaoPerfil"> Sobre </h2>
+          <p>{{barbearia.descricaoPerfil}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

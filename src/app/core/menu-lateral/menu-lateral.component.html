@@ -1,0 +1,52 @@
+<div *ngIf="usuario.tipoUsuario=='CLIENTE'">
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="https://media.istockphoto.com/vectors/silhouette-default-avatar-man-to-social-user-vector-id860639792"/>
+      <h2>{{usuario.nome}}</h2>
+    </header>
+    <ul>
+
+      <li tabindex="0" class="icon-agendamento">
+        <span>Agendamentos</span>
+      </li>
+      <li tabindex="0" class="icon-notificacao">
+        <span>Notificações</span>
+      </li>
+      <li tabindex="0" class="icon-settings">
+        <span>Alterar Dados</span>
+      </li>
+      <li tabindex="0" class="icon-sair" (click)="sair()">
+        <span >Sair</span>
+      </li>
+
+    </ul>
+  </nav>
+</div>
+<div *ngIf="usuario.tipoUsuario !='CLIENTE'">
+  <nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+      <img src="https://cdn.xl.thumbs.canstockphoto.com.br/s%C3%ADmbolo-sinal-hipster-barbeiro-icon-bigode-ilustra%C3%A7%C3%A3o_csp40581226.jpg"/>
+      <h2>{{usuario.nome}}</h2>
+    </header>
+    <ul>
+      <li tabindex="0" class="icon-agendamento">
+        <span>Agendamentos</span>
+      </li>
+      <li tabindex="0" class="icon-agendamento">
+        <span [routerLink]="['servico','novo-servico']">Cadastro Serviço</span>
+      </li>
+      <li tabindex="0" class="icon-notificacao">
+        <span>Notificações</span>
+      </li>
+      <li tabindex="0" class="icon-settings">
+        <span>Alterar Dados</span>
+      </li>
+      <li tabindex="0" class="icon-sair" (click)="sair()">
+        <span >Sair</span>
+      </li>
+
+    </ul>
+  </nav>
+</div>
