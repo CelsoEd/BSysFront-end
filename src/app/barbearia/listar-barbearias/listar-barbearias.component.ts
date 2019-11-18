@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Barbearia} from '../../model/barbearia.model';
 import {BarbeariaService} from '../barbearia.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-listar-barbearias',
@@ -12,7 +13,9 @@ export class ListarBarbeariasComponent implements OnInit, OnChanges {
   barbeariasConsulta: Barbearia[];
   rows: any[] = [];
 
-  constructor(private barbeariaService: BarbeariaService) {
+  constructor(
+    private router: Router,
+    private barbeariaService: BarbeariaService) {
   }
 
   ngOnInit() {
@@ -41,4 +44,9 @@ export class ListarBarbeariasComponent implements OnInit, OnChanges {
     return newRows;
   }
 
+  perfilSelecionado(id: string) {
+    this.router.navigate(['perfil', 'usuario']);
+  }
+
 }
+

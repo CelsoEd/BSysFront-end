@@ -1,0 +1,52 @@
+<form id="msform" class="card-body" [formGroup]="form" autocomplete="off">
+  <fieldset>
+    <div class="divcadastro">
+      <div class="img">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS2YFgnZ-MQtDyqWI5bJhrZjZXdIUA3ykseqg3CR9JgdPlgbswd"
+          width="100%">
+      </div>
+
+      <h1 class="cadastro text-center m-4 card-header">Cadastro de Agendamento</h1>
+    </div>
+    <h3 class=" card-header text-center">Serviço</h3>
+    <div class="row">
+      <div class="col-md-6 m-1">
+        Serviço: {{servicoNome}}<p>
+        Preço: {{servicoValor | currency : 'BRL' : 'symbol'}}
+      </div>
+      <div class="col-md-5 m-1">
+        Descrição: {{servicoDescricao}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 m-1">
+        <app-input id="data" placeholder="Data" label="Data"
+                   formControlName="data"
+                   [(ngModel)]="data"></app-input>
+      </div>
+      <div class="col-md-5 m-1">
+        <app-input id="hora" label="Hora" placeholder="hora"
+                   formControlName="hora"
+                   [(ngModel)]="hora"></app-input>
+      </div>
+    </div>
+
+
+
+    <div class="text-center">
+
+      <div class="text-center m-3">
+        <button (click)="cadastrar()" class="btn btn-dark btn-block" [disabled]="form.invalid">Cadastrar</button>
+      </div>
+      <div class="text-center m-3">
+        <button (click)="cancelar()" class="btn btn-dark btn-block">Cancelar</button>
+      </div>
+    </div>
+
+  </fieldset>
+
+</form>
+
+

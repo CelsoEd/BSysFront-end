@@ -1,44 +1,30 @@
-<div class="container">
+
+<div class="container" *ngIf="this.suscesso == 1">
   <h1 class="card-header">Cadastro</h1>
   <form class="card-body" [formGroup]="form" autocomplete="off">
 
-    <div align="center">
-      <label class="btn btn-dark active m-1">
-        <input type="radio" value="CLIENTE" formControlName="tipoUsuario">
-        <span>CLIENTE</span>
-      </label>
-      <label class="btn btn-dark m-1">
-        <input type="radio" value="BARBEARIA" formControlName="tipoUsuario">
-        <span>BARBEARIA</span>
-      </label>
-      <label class="btn btn-dark m-1">
-        <input type="radio" value="FREELANCER" formControlName="tipoUsuario">
-        <span>FREELANCER</span>
-      </label>
-    </div>
 
-    <div *ngIf="this.form.get('tipoUsuario').value">
       <div class="row">
         <div class="col-md-12">
           <app-input id="nome" placeholder="Digite seu nome completo" label="Nome"
                      formControlName="nome"
-                     [model]="form.get('nome')"></app-input>
+                     [(ngModel)]="usuario.nome"></app-input>
         </div>
       </div>
 
-      <div class="row" *ngIf="this.form.get('tipoUsuario').value === 'CLIENTE'">
+      <div class="row" *ngIf="usuario.tipoUsuario === 'CLIENTE'">
         <div class="col-md-6">
           <app-input id="cpf" label="CPF" placeholder="Apenas números"
                      formControlName="cpf"
-                     [model]="form.get('cpf')"></app-input>
+                     [(ngModel)]="usuario.cpf"></app-input>
         </div>
       </div>
 
-      <div class="row" *ngIf="this.form.get('tipoUsuario').value != 'CLIENTE'">
+      <div class="row" *ngIf="usuario.tipoUsuario != 'CLIENTE'">
         <div class="col-md-6">
           <app-input id="cnpj" label="CNPJ" placeholder="Apenas números"
                      formControlName="cnpj"
-                     [model]="form.get('cnpj')"></app-input>
+                     [(ngModel)]="usuario.cnpj"></app-input>
         </div>
       </div>
 
@@ -46,40 +32,28 @@
         <div class="col-md-6">
           <app-input id="telefone" placeholder="XX XXXXX-XXXX" label="Celular"
                      formControlName="telefone"
-                     [model]="form.get('telefone')"></app-input>
+                     [(ngModel)]="usuario.telefone"></app-input>
         </div>
         <div class="col-md-6">
           <app-input id="telefone2" placeholder="XX XXXXX-XXXX" label="Telefone"
                      formControlName="telefone2"
-                     [model]="form.get('telefone2')"></app-input>
+                     [(ngModel)]="usuario.telefone2"></app-input>
         </div>
       </div>
       <div class="row">
         <div class="col-md-8">
           <app-input id="email" label="Email" placeholder="email@email.com"
                      formControlName="email"
-                     [model]="form.get('email')"></app-input>
+                     [(ngModel)]="usuario.email"></app-input>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <app-input id="senha" placeholder="Informe a senha" label="Senha"
-                     formControlName="senha"
-                     [model]="form.get('senha')"></app-input>
-        </div>
-        <div class="col-md-6">
-          <app-input id="confirmaSenha" placeholder="Repita a senha" label="Confirmar Senha"
-                     formControlName="confirmaSenha"
-                     [model]="form.get('confirmaSenha')"></app-input>
-        </div>
-      </div>
+
 
       <div class="row">
         <div class="col-md-6">
           <app-input id="cep" placeholder="Apenas números" label="CEP"
                      formControlName="cep"
-                     [model]="form.get('cep')"></app-input>
-          <!--      <button type="button" class="btn btn-primary" (click)="buscar(form.get('cep').value)">Pesquisar</button>-->
+                     [(ngModel)]="usuario.endereco.cep"></app-input>
         </div>
       </div>
 
@@ -87,17 +61,17 @@
         <div class="col-md-6">
           <app-input id="logradouro" placeholder="" label="Rua"
                      formControlName="logradouro"
-                     [model]="form.get('logradouro')"></app-input>
+                     [(ngModel)]="usuario.endereco.logradouro"></app-input>
         </div>
         <div class="col-md-2">
           <app-input id="numero" placeholder="" label="Número"
                      formControlName="numero"
-                     [model]="form.get('numero')"></app-input>
+                     [(ngModel)]="usuario.endereco.numero"></app-input>
         </div>
         <div class="col-md-4">
           <app-input id="bairro" placeholder="" label="Bairro"
                      formControlName="bairro"
-                     [model]="form.get('bairro')"></app-input>
+                     [(ngModel)]="usuario.endereco.bairro"></app-input>
         </div>
       </div>
 
@@ -105,26 +79,26 @@
         <div class="col-md-6">
           <app-input id="cidade" placeholder="" label="Cidade"
                      formControlName="cidade"
-                     [model]="form.get('cidade')"></app-input>
+                     [(ngModel)]="usuario.endereco.cidade"></app-input>
         </div>
         <div class="col-md-2">
           <app-input id="estado" placeholder="" label="Estado"
-                     formControlName="uf"
-                     [model]="form.get('uf')"></app-input>
+                     formControlName="estado"
+                     [(ngModel)]="usuario.endereco.uf"></app-input>
         </div>
         <div class="col-md-4">
           <app-input id="complemento" placeholder="" label="Complemento"
                      formControlName="complemento"
-                     [model]="form.get('complemento')"></app-input>
+                     [(ngModel)]="usuario.endereco.complemento"></app-input>
         </div>
       </div>
 
 
-    </div>
+
     <div class="text-center">
 
-      <div class="text-center m-3" *ngIf="this.form.get('tipoUsuario').value">
-        <button (click)="cadastrar()" class="btn btn-dark btn-block" [disabled]="form.invalid">Cadastrar</button>
+      <div class="text-center m-3">
+        <button (click)="alterar()" class="btn btn-dark btn-block">Alterar</button>
       </div>
       <div class="text-center m-3">
         <button (click)="cancelar()" class="btn btn-dark btn-block">Cancelar</button>

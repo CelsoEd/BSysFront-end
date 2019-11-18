@@ -7,10 +7,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {ClienteService} from './cliente.service';
 import { BuscaTodosComponent } from './busca-todos/busca-todos.component';
 import {UtilModule} from '../util/util.module';
+import { AgendamentoComponent } from './agendamento/agendamento.component';
 
 
 @NgModule({
-  declarations: [NovoClienteComponent, BuscaTodosComponent],
+  declarations: [NovoClienteComponent, BuscaTodosComponent, AgendamentoComponent],
   imports: [
     CommonModule,
     ClienteRoutingModule,

@@ -1,0 +1,55 @@
+<div id="headerimage"></div>
+<div id="invoice" class="effect2">
+
+  <div id="invoice-top">
+    <div class="logo"></div>
+    <div class="info">
+      <h1>{{usuario.nome}}</h1>
+      <p>Tel : {{usuario.telefone}}</p>
+      <p>Tel : {{usuario.telefone2}}</p>
+    </div><!--End Info-->
+  </div><!--End InvoiceTop-->
+
+  <div id="invoice-mid">
+
+    <div class="clientlogo"></div>
+    <div class="info">
+      <h2>Endereço</h2>
+      <p>{{usuario.endereco.logradouro}}, {{usuario.endereco.complemento}} {{usuario.endereco.numero}}
+        , {{usuario.endereco.bairro}}</p>
+      <p>{{usuario.endereco.cidade}}, {{usuario.endereco.uf}}</p>
+      <p>{{usuario.endereco.cep}}</p>
+    </div>
+
+    <div id="project">
+      <h2>Sobre</h2>
+      <p>{{usuario.descricaoPerfil}}</p>
+    </div>
+
+  </div><!--End Invoice Mid-->
+
+  <div id="invoice-bot">
+
+    <div id="table" *ngIf="usuario.servicos">
+      <table>
+        <tr class="tabletitle">
+          <td class="item"><h2>Serviços</h2></td>
+          <td class="Hours"><h2>Preços</h2></td>
+          <td class="Hours" *ngIf="userSession.tipoUsuario == 'CLIENTE'"><h2></h2></td>
+        </tr>
+        <tr *ngFor="let servico of usuario.servicos">
+          <td>{{servico.nome}}</td>
+          <td>{{servico.valor | currency : 'BRL' : 'symbol'}}</td>
+          <td>
+            <button class="btn-danger" [routerLink]="['/cliente/agendamento']"
+                    [queryParams]="{id: servico.id, nome: servico.nome, valor: servico.valor, descricao: servico.descricao} ">
+              Agendar
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div><!--End Table-->
+  </div><!--End InvoiceBot-->
+
+</div><!--End Invoice-->
+

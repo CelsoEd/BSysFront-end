@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {__await} from 'tslib';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
 }

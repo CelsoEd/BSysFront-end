@@ -1,0 +1,99 @@
+article {
+  max-width: content-box;
+  margin: 0 auto;
+  padding: 10px;
+}
+* {margin: 0; padding: 0;}
+
+html {
+  height: 100%;
+  background: #4F4F4F;
+  font-family: "Lato", sans-serif;
+}
+
+p {
+  color: grey;
+}
+
+#msform {
+  width: 400px;
+  margin: 150px auto;
+  position: relative;
+}
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 15px; /*Arredondamento da borda do formulario*/
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 170%;
+  margin: 0 10%;
+  position: relative;
+}
+.row{
+  padding: 15px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+#msform input {
+  padding: 10px;
+  border: 1px solid #9C9C9C;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 85%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+#msform .fs-title {
+  padding: 15px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  margin-bottom: 1px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #000000;
+  color: White;
+  width: 50%;
+  height: 30px;
+  font-family: "Lato", sans-serif;
+  border: 2px solid #000000;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #4682B4;
+}
+
+#mais{
+  font-size: 24px;
+  margin: 5px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  height: 50px;
+  width: 50px;
+  border-radius: 15px;
+}
+#mais:hover{
+  background-color: #4682B4;
+}
+.cadastro{
+  pading-top: 15px;
+  font-size: 25px;
+}
+
+.img{
+  height: 200px;
+  opacity: .7;
+  overflow: hidden;
+  transition: all .2s ease-in-out;
+}

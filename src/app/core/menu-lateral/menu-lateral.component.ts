@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../autentificacao/user';
 import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu-lateral',
@@ -11,7 +12,7 @@ export class MenuLateralComponent implements OnInit {
 
   usuario: User;
 
-  constructor() {
+  constructor(private route: Router) {
     this.usuario = JSON.parse(localStorage.getItem('currentUser'));
   }
 

@@ -15,7 +15,6 @@ export class CadastroComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private autentificacaoService: AutentificacaoService,
-              private cepService: CepService
   ) {
   }
 
@@ -40,7 +39,7 @@ export class CadastroComponent implements OnInit {
       numero: ['', Validators.required],
       bairro: ['', Validators.required],
       cidade: ['', Validators.required],
-      estado: ['', Validators.required],
+      uf: ['', Validators.required],
       complemento: ['', Validators.required],
     });
   }

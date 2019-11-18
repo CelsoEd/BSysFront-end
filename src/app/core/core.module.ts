@@ -10,6 +10,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './autentificacao/login/login.component';
 import { CadastroComponent } from './autentificacao/cadastro/cadastro.component';
 import {UtilModule} from '../util/util.module';
+import { AlterarComponent } from './autentificacao/alterar/alterar.component';
+import {PerfilModule} from '../perfil/perfil.module';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import {UtilModule} from '../util/util.module';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    CadastroComponent
+    CadastroComponent,
+    AlterarComponent
   ],
   imports: [
     CommonModule,

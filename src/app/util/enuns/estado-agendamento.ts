@@ -1,0 +1,5 @@
+export enum EstadoAgendamento {
+  CONFIRMADO = 'CONFIRMADO',
+  CANCELADO = 'CANCELADO',
+  SOLICITADO = 'SOLICITADO'
+}

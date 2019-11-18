@@ -16,8 +16,8 @@
         <li>
           <a href="#!" [routerLink]="['home']">Promoções</a>
         </li>
-        <li>
-          <a href="#!" [routerLink]="['home']">Perfil</a>
+        <li *ngIf="usuario?.id != null">
+          <a href="#!" [routerLink]="['/perfil/usuario']" [queryParams]="{id: usuario.id, tipoUsuario: usuario.tipoUsuario}">Perfil</a>
         </li>
         <li *ngIf="usuario?.id == null">
           <a href="#!" [routerLink]="['login']">Login</a>

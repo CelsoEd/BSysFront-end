@@ -13,7 +13,7 @@ registerLocaleData(locatePt, 'pt');
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
