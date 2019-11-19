@@ -270,10 +270,12 @@ main span {
   }
 }
 .menu ul li.icon-settings {
-  background-image: url("http://www.entypo.com/images//tools.svg");
+  background-image: url("http://www.entypo.com/images/cog.svg");
 } /*icone do perfil*/
 .menu ul li.icon-agendamento {
   background-image: url("http://www.entypo.com/images/back-in-time.svg");
+}.menu ul li.icon-servico {
+  background-image: url("http://www.entypo.com/images//tools.svg");
 } /*icone do perfil*/
 .menu ul li.icon-notificacao {
   background-image: url("http://www.entypo.com/images/bell.svg");
@@ -281,3 +283,4 @@ main span {
 .menu ul li.icon-sair {
   background-image: url("http://www.entypo.com/images/export.svg");
 } /*icone do perfil*/
+

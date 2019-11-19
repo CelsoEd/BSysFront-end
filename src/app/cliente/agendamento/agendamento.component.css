@@ -16,9 +16,10 @@ p {
 }
 
 #msform {
-  width: 400px;
+  width: 290px;
   margin: 150px auto;
-  position: relative;
+  position: absolute;
+  margin-left: 350px;
 }
 #msform fieldset {
   background: white;
@@ -97,3 +98,10 @@ p {
   overflow: hidden;
   transition: all .2s ease-in-out;
 }
+.cadastro{
+  margin: 30px;
+
+
+}
+
+

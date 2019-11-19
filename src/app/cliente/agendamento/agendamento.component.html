@@ -7,9 +7,8 @@
           width="100%">
       </div>
 
-      <h1 class="cadastro text-center m-4 card-header">Cadastro de Agendamento</h1>
+      <h1 class="cadastro text-center " id = "cadastro">Solicitação de Agendamento</h1>
     </div>
-    <h3 class=" card-header text-center">Serviço</h3>
     <div class="row">
       <div class="col-md-6 m-1">
         Serviço: {{servicoNome}}<p>
@@ -22,14 +21,13 @@
 
     <div class="row">
       <div class="col-md-6 m-1">
-        <app-input id="data" placeholder="Data" label="Data"
-                   formControlName="data"
-                   [(ngModel)]="data"></app-input>
+        <p>Data</p>
+        <input type="date" name="Data">
       </div>
       <div class="col-md-5 m-1">
-        <app-input id="hora" label="Hora" placeholder="hora"
-                   formControlName="hora"
-                   [(ngModel)]="hora"></app-input>
+        <p>Horario</p>
+        <input type="time" id="appt" name="appt"
+               min="07:00" max="18:00" required>
       </div>
     </div>
 
