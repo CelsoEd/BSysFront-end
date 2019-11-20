@@ -16,7 +16,7 @@ p {
 }
 
 #msform {
-  width: 400px;
+  width: 300px;
   margin: 150px auto;
   position: relative;
 }
@@ -32,8 +32,9 @@ p {
   position: relative;
 }
 .row{
+  font-weight: bold;
   padding: 15px;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
   border-radius: 10px;
   margin-bottom: 10px;
   width: 100%;
@@ -59,18 +60,10 @@ p {
   font-size: 16px;
 }
 
-.btn-primary {
-  background-color: #000000;
-  color: White;
-  width: 50%;
-  height: 30px;
-  font-family: "Lato", sans-serif;
-  border: 2px solid #000000;
-  border-radius: 5px;
-}
 
-.btn-primary:hover {
-  background-color: #4682B4;
+.btn{
+  width: 100%;
+  height: 40px;
 }
 
 #mais{

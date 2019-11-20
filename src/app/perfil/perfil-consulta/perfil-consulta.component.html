@@ -40,7 +40,7 @@
         <tr *ngFor="let servico of usuario.servicos">
           <td>{{servico.nome}}</td>
           <td>{{servico.valor | currency : 'BRL' : 'symbol'}}</td>
-          <td>
+          <td *ngIf="userSession.tipoUsuario == 'CLIENTE'">
             <button class="btn-danger" [routerLink]="['/cliente/agendamento']"
                     [queryParams]="{id: servico.id, nome: servico.nome, valor: servico.valor, descricao: servico.descricao} ">
               Agendar
@@ -49,6 +49,23 @@
         </tr>
       </table>
     </div><!--End Table-->
+
+    <div id="tableAgd" *ngIf="userSession.tipoUsuario == 'CLIENTE'" >
+      <h1 class="text-center card-header mb-2">Agendamentos</h1>
+      <table>
+        <tr class="tabletitle">
+          <td class="item"><h2>Serviço</h2></td>
+          <td class="mat-calendar"><h2>Data</h2></td>
+          <td class="item text-center"><h2>Situação</h2></td>
+        </tr>
+        <tr *ngFor="let agendamento of usuario.agendamento">
+          <td>{{agendamento.servicos.nome}}</td>
+          <td>{{agendamento.dataHora}}</td>
+          <td class="text-center">{{agendamento.status}}</td>
+        </tr>
+      </table>
+    </div><!--End Table-->
+
   </div><!--End InvoiceBot-->
 
 </div><!--End Invoice-->

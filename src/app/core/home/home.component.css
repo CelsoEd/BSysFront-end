@@ -1,12 +1,9 @@
-.logo1{
+.tudo {
   border-radius: 15px;
-  margin-top: 8px;
-}
-body {
   font-size: 14px;
   line-height: 24px;
   font-family: "PT Sans Narrow", sans-serif;
-  min-width: 960px;
+  min-width: 1000px;
   margin: 0;
   padding: 0;
   background-color: #696969;
@@ -17,100 +14,26 @@ body {
   text-transform: uppercase;
   color: #fff;
 }
-.main-header {
-  padding: 5px 0;
-  margin-bottom: 60px;
-  background: #000;
+#logo1{
+  width: 70%;
+  height: 70%;
+  border-radius: 15px;
+  float: left;
+  margin-top: 20px;
 }
-
 .container {
+  text-align: center;
   min-height: 20px;
   padding: 0 10px;
-  width: 940px;
+  width: 1200px;
   margin: 30px auto;
 }
-.main-navigation {
-  width: 780px;
-  min-height: 50px;
-  float: left;
-}
-.main-navigation ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 0;
-}
-.main-navigation li {
-  display: inline-block;
-  vertical-align: top;
-  font-size: 16px;
-  line-height: 20px;
-}
-.main-navigation a {
-  display: block;
-  padding: 25px 20px;
-  text-decoration: none;
-  color: #fff;
-}
-.main-navigation a:hover {
-  background: #242424;
-}
-.main-navigation .active a:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  height: 5px;
-  background: white;
-  left: 20px;
-  right: 20px;
-}
-.main-navigation .active a {
-  position: relative;
-}
-.main-navigation .active a:hover {
-  background: none;
-}
-.login {
-  position: relative;
 
-  display: inline-block;
-  vertical-align: top;
-  padding: 25px 20px;
-  padding-left: 50px;
-
-  font-size: 16px;
-  line-height: 20px;
-  text-decoration: none;
-
-  color: #fff;
-}
-.login:hover {
-  background: #242424;
-}
-.login:hover:before {
-  opacity: 1;
-}
-.login:before {
-  content: "";
-
-  position: absolute;
-  top: 28px;
-  left: 20px;
-
-  width: 18px;
-  height: 16px;
-  background: transparent url(https://goo.gl/SFecDh) no-repeat;
-  opacity: .3;
-}
 .logo {
   width: 362px;
   height: 204px;
 }
-.user-block {
-  min-height: 50px;
-  width: 90px;
-  float: right;
-}
+
 .clearfix:after {
   content: '';
   display: table;
@@ -126,7 +49,7 @@ body {
   height: 204px;
 }
 .features-row {
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 }
 .features-item {
   float: left;
@@ -164,8 +87,9 @@ body {
   margin: 10px;
 }
 .index-content {
+  width: 1070px;
   margin-bottom: 35px;
-  padding: 50px 80px;
+  padding: 50px 50px;
   color: #000;
   background: #FFFFFF;
   border-radius: 15px;
@@ -187,25 +111,6 @@ body {
 }
 .news-preview time {
   text-transform: none;
-}
-.btn {
-  display: inline-block;
-  vertical-align: top;
-  padding: 10px 33px;
-  margin-right: 16px;
-
-  font-size: 14px;
-  font-family: "PT Sans Narrow", sans-serif;
-  font-weight: 700;
-  line-height: 24px;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  color: #fff;
-  background: #000;
-  border: none;
-  outline: none;
-  cursor: pointer;
 }
 .content-column-left {
   float: left;

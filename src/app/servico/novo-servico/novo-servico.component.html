@@ -28,7 +28,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <app-input id="valor" placeholder="ex: R$: 15,00)" label="Preço"
+        <app-input id="valor" placeholder="ex: R$: 15,00" label="Preço"
                    formControlName="valor"
                    [model]="form.get('valor')"></app-input>
       </div>
@@ -36,11 +36,11 @@
 
     <div class="text-center">
 
-      <div class="text-center m-3">
-        <button (click)="cadastrar()" class="btn btn-dark btn-block" [disabled]="form.invalid">Cadastrar</button>
+      <div class="text-center m-3 text-center">
+        <button (click)="cadastrar()" class="btn btn-dark btn-block text-center" [disabled]="form.invalid">Cadastrar</button>
       </div>
-      <div class="text-center m-3">
-        <button (click)="cancelar()" class="btn btn-dark btn-block">Cancelar</button>
+      <div class="text-center m-3 text-center">
+        <button (click)="cancelar()" class="btn btn-dark btn-block text-center" >Cancelar</button>
       </div>
     </div>
 

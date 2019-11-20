@@ -7,7 +7,7 @@
           width="100%">
       </div>
 
-      <h1 class="cadastro text-center " id = "cadastro">Solicitação de Agendamento</h1>
+      <h1 class="cadastro text-center " id="cadastro">Solicitação de Agendamento</h1>
     </div>
     <div class="row">
       <div class="col-md-6 m-1">
@@ -19,24 +19,24 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-6 m-1">
-        <p>Data</p>
-        <input type="date" name="Data">
+
+      <div class="row" >
+        <div class=" m-auto">
+
+          <input type="datetime-local" id="meeting-time"
+                 name="meeting-time" [(ngModel)]="dataHora"
+                 formControlName="dataHora"
+                 min="2019-11-20T00:00">
+        </div>
       </div>
-      <div class="col-md-5 m-1">
-        <p>Horario</p>
-        <input type="time" id="appt" name="appt"
-               min="07:00" max="18:00" required>
-      </div>
-    </div>
+
 
 
 
     <div class="text-center">
 
       <div class="text-center m-3">
-        <button (click)="cadastrar()" class="btn btn-dark btn-block" [disabled]="form.invalid">Cadastrar</button>
+        <button (click)="cadastrar()" class="btn btn-dark btn-block">Cadastrar</button>
       </div>
       <div class="text-center m-3">
         <button (click)="cancelar()" class="btn btn-dark btn-block">Cancelar</button>

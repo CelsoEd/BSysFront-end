@@ -71,20 +71,20 @@ export class AlterarComponent implements OnInit {
   alterar() {
     if (this.usuario.tipoUsuario === TipoUsuario.CLIENTE) {
       this.autentificacaoService.alterarCliente(this.preecheendereco(this.usuario)).subscribe(() => {
-        alert('Conta criada com suscesso');
-        this.router.navigate(['login']);
+        alert('Dados alterado com suscesso');
+        this.router.navigate(['home']);
       });
     }
     if (this.usuario.tipoUsuario === TipoUsuario.BARBEARIA) {
       this.autentificacaoService.alterarBarbearia(this.preecheendereco(this.usuario)).subscribe(() => {
-        alert('Barbearia cadastrada com suscesso');
-        this.router.navigate(['login']);
+        alert('Dados alterado com suscesso');
+        this.router.navigate(['home']);
       });
     }
     if (this.usuario.tipoUsuario === TipoUsuario.FREELANCER) {
       this.autentificacaoService.alterarFreeLancer(this.preecheendereco(this.usuario)).subscribe(() => {
-        alert('Freelancer cadastrado com suscesso');
-        this.router.navigate(['login']);
+        alert('Dados alterado com suscesso');
+        this.router.navigate(['home']);
       });
     }
   }

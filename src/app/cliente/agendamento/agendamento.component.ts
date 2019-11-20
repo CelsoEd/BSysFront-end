@@ -1,6 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Data} from '../../util/data';
+
+import {User} from '../../core/autentificacao/user';
+import {ClienteService} from '../cliente.service';
+import {Agendamento} from '../../model/Agendamento.model';
+import {EstadoAgendamento} from '../../util/enuns/estado-agendamento';
 
 @Component({
   selector: 'app-agendamento',
@@ -8,7 +14,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./agendamento.component.css']
 })
 export class AgendamentoComponent implements OnInit {
-  private userSession: any;
+  private userSession: User;
   private servicoId: any;
   private servicoNome: any;
   private servicoValor: any;
@@ -16,10 +22,15 @@ export class AgendamentoComponent implements OnInit {
   form: FormGroup;
   data: any;
   hora: any;
+  dataHora: string;
+  dataHorar: Date;
+  agendamento: Agendamento;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: ActivatedRoute) {
+    private router: ActivatedRoute,
+    private route: Router,
+    private clienteService: ClienteService) {
   }
 
   ngOnInit() {
@@ -31,9 +42,31 @@ export class AgendamentoComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       data: ['', Validators.required],
-      hora: ['', Validators.required]
+      hora: ['', Validators.required],
+      dataHora: ['', Validators.required]
     });
-}
+  }
 
 
+  cadastrar() {
+    this.dataHorar = new Date(this.dataHora);
+    this.dataHora = Data.formataDataHora(this.dataHorar);
+
+    this.clienteService.agendamento(this.preecheAgendamento()).subscribe(() => {
+      alert('Agendamento realizado com suscesso');
+      this.route.navigate(['home']);
+    });
+
+  }
+
+  preecheAgendamento() {
+    return {
+      idCliente: this.userSession.id,
+      idServico: this.servicoId,
+      dataHora: this.dataHora,
+      status: EstadoAgendamento.SOLICITADO
+    };
+
+
+  }
 }
