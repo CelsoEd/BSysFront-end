@@ -1,72 +1,109 @@
-<div id="headerimage"></div>
-<div id="invoice" class="effect2">
+<div class="fundo">
+  <div id="headerimage"></div>
+  <div id="invoice" class="effect2">
 
-  <div id="invoice-top">
-    <div class="logo"></div>
-    <div class="info">
-      <h1>{{usuario.nome}}</h1>
-      <p>Tel : {{usuario.telefone}}</p>
-      <p>Tel : {{usuario.telefone2}}</p>
-    </div><!--End Info-->
-  </div><!--End InvoiceTop-->
+    <div id="invoice-top">
+      <div class="logo"></div>
+      <div class="info">
+        <h1>{{usuario.nome}}</h1>
+        <p>Tel : {{usuario.telefone}}</p>
+        <p>Tel : {{usuario.telefone2}}</p>
+      </div><!--End Info-->
+    </div><!--End InvoiceTop-->
 
-  <div id="invoice-mid">
+    <div id="invoice-mid">
 
-    <div class="clientlogo"></div>
-    <div class="info">
-      <h2>Endereço</h2>
-      <p>{{usuario.endereco.logradouro}}, {{usuario.endereco.complemento}} {{usuario.endereco.numero}}
-        , {{usuario.endereco.bairro}}</p>
-      <p>{{usuario.endereco.cidade}}, {{usuario.endereco.uf}}</p>
-      <p>{{usuario.endereco.cep}}</p>
-    </div>
+      <div class="clientlogo"></div>
+      <div class="info">
+        <h2>Endereço</h2>
+        <p>{{usuario.endereco.logradouro}}, {{usuario.endereco.complemento}} {{usuario.endereco.numero}}
+          , {{usuario.endereco.bairro}}</p>
+        <p>{{usuario.endereco.cidade}}, {{usuario.endereco.uf}}</p>
+        <p>{{usuario.endereco.cep}}</p>
+      </div>
 
-    <div id="project">
-      <h2>Sobre</h2>
-      <p>{{usuario.descricaoPerfil}}</p>
-    </div>
+      <div id="project">
+        <h2>Sobre</h2>
+        <p>{{usuario.descricaoPerfil}}</p>
+      </div>
 
-  </div><!--End Invoice Mid-->
+    </div><!--End Invoice Mid-->
 
-  <div id="invoice-bot">
+    <div id="invoice-bot">
 
-    <div id="table" *ngIf="usuario.servicos">
-      <table>
-        <tr class="tabletitle">
-          <td class="item"><h2>Serviços</h2></td>
-          <td class="Hours"><h2>Preços</h2></td>
-          <td class="Hours" *ngIf="userSession.tipoUsuario == 'CLIENTE'"><h2></h2></td>
-        </tr>
-        <tr *ngFor="let servico of usuario.servicos">
-          <td>{{servico.nome}}</td>
-          <td>{{servico.valor | currency : 'BRL' : 'symbol'}}</td>
-          <td *ngIf="userSession.tipoUsuario == 'CLIENTE'">
-            <button class="btn-danger" [routerLink]="['/cliente/agendamento']"
-                    [queryParams]="{id: servico.id, nome: servico.nome, valor: servico.valor, descricao: servico.descricao} ">
-              Agendar
-            </button>
-          </td>
-        </tr>
-      </table>
-    </div><!--End Table-->
+      <div id="table" *ngIf="usuario.servicos">
+        <h1 class="text-center card-header mb-1">Lista de Serviços</h1>
+        <table>
+          <tr class="tabletitle">
+            <td class="item"><h2>Serviços</h2></td>
+            <td class="Hours"><h2>Preços</h2></td>
+            <td class="Hours" *ngIf="userSession.tipoUsuario == 'CLIENTE'"><h2></h2></td>
+          </tr>
+          <tr *ngFor="let servico of usuario.servicos">
+            <td>{{servico.nome}}</td>
+            <td>{{servico.valor | currency : 'BRL' : 'symbol'}}</td>
+            <td *ngIf="userSession.tipoUsuario == 'CLIENTE'">
+              <button class="btn-danger" [routerLink]="['/cliente/agendamento']"
+                      [queryParams]="{id: servico.id, nome: servico.nome, valor: servico.valor, descricao: servico.descricao} ">
+                Agendar
+              </button>
+            </td>
+          </tr>
+        </table>
+      </div><!--End Table-->
 
-    <div id="tableAgd" *ngIf="userSession.tipoUsuario == 'CLIENTE'" >
-      <h1 class="text-center card-header mb-2">Agendamentos</h1>
-      <table>
-        <tr class="tabletitle">
-          <td class="item"><h2>Serviço</h2></td>
-          <td class="mat-calendar"><h2>Data</h2></td>
-          <td class="item text-center"><h2>Situação</h2></td>
-        </tr>
-        <tr *ngFor="let agendamento of usuario.agendamento">
-          <td>{{agendamento.servicos.nome}}</td>
-          <td>{{agendamento.dataHora}}</td>
-          <td class="text-center">{{agendamento.status}}</td>
-        </tr>
-      </table>
-    </div><!--End Table-->
+      <div id="tableAgd" *ngIf="userSession.tipoUsuario != 'CLIENTE'">
+        <h1 class="text-center card-header mt-4 mb-1">Agendamentos</h1>
+        <table>
+          <tr class="tabletitle">
+            <td class="item"><h2>Serviço</h2></td>
+            <td class="mat-calendar"><h2>Data</h2></td>
+            <td class="item text-center"><h2>Situação</h2></td>
+            <td class="item text-center" *ngIf="userSession.id == this.usuario.id"><h2></h2></td>
+          </tr>
+          <tbody *ngFor="let agendamento of usuario.servicos">
+          <tr *ngFor="let agendamentos of agendamento.agendamento">
+            <td>{{agendamento.nome}}</td>
+            <td>{{agendamentos.dataHora}}</td>
+            <td class="text-center">{{agendamentos.status}}</td>
 
-  </div><!--End InvoiceBot-->
+            <td class="text-center" *ngIf="userSession.id == this.usuario.id">
+              <button class="btn-success" (click)="confirmar(agendamentos.id)">
+                Confirmar
+              </button>
+              <button class="btn-danger w-100" (click)="cancelar(agendamentos.id)">
+                Cancelar
+              </button>
+              <button class="btn-info w-100" (click)="consultar(agendamentos.idCliente)">
+                Cliente
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div><!--End Table-->
 
-</div><!--End Invoice-->
+
+      <!--      <div id="tableAgd" *ngIf="userSession.tipoUsuario == 'CLIENTE'">-->
+      <div id="tableAgd" *ngIf="usuario?.agendamento">
+        <h1 class="text-center card-header mb-2-">Agendamentos</h1>
+        <table>
+          <tr class="tabletitle">
+            <td class="item"><h2>Serviço</h2></td>
+            <td class="mat-calendar"><h2>Data</h2></td>
+            <td class="item text-center"><h2>Situação</h2></td>
+          </tr>
+          <tr *ngFor="let agendamento of usuario.agendamento">
+            <td>{{agendamento.servicos.nome}}</td>
+            <td>{{agendamento.dataHora}}</td>
+            <td class="text-center">{{agendamento.status}}</td>
+          </tr>
+        </table>
+      </div><!--End Table-->
+
+    </div><!--End InvoiceBot-->
+
+  </div><!--End Invoice-->
+
+</div>
 

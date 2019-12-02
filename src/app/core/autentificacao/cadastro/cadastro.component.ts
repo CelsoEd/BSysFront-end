@@ -4,6 +4,10 @@ import {Router} from '@angular/router';
 import {AutentificacaoService} from '../autentificacao.service';
 import {TipoUsuario} from '../../../util/enuns/tipo-usuario.enum';
 import {CepService} from '../cep.service';
+import {Cpf} from '../../../util/validadores/cpf';
+import {ValidateBrService} from 'angular-validate-br';
+import {Endereco} from '../../../model/endereco.model';
+import {Cep} from '../../../model/Cep.model';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,25 +19,32 @@ export class CadastroComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private autentificacaoService: AutentificacaoService,
+              private validateBrService: ValidateBrService,
+              private cepService: CepService
   ) {
   }
 
   public tipoUsuario: TipoUsuario;
+  endereco: Endereco;
+  cepConsulta: any;
+
+  resultado: any;
+  cepBusca: Cep;
 
 
   form: FormGroup;
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      tipoUsuario: [''],
+      tipoUsuario: ['CLIENTE'],
       nome: ['', Validators.required],
-      cpf: ['', Validators.required],
-      cnpj: ['', Validators.required],
+      cpf: ['', Cpf.isValidCpf()],
+      cnpj: ['', this.validateBrService.cnpj],
       telefone: ['', Validators.required],
       telefone2: ['', Validators.required],
-      email: ['', Validators.required],
-      senha: ['', Validators.required, Validators.minLength(3)],
-      confirmaSenha: ['', Validators.required, Validators.minLength(3)],
+      email: ['', Validators.email],
+      senha: ['', Validators.required, Validators.minLength(6)],
+      confirmaSenha: ['', Validators.required, Validators.minLength(6)],
       cep: ['', Validators.required],
       logradouro: ['', Validators.required],
       numero: ['', Validators.required],
@@ -65,12 +76,24 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-  carregarNomeDepositante(reclamado) {
-    console.log('Valor selecionado: ' + reclamado);
-  }
-
   cancelar() {
     this.router.navigate(['login']);
+  }
+
+  consultaCep(cep: string) {
+    this.cepConsulta = this.cepService.buscar(cep)
+      .subscribe(data => this.resultado = this.converterRespostaParaCep(data));
+  }
+
+  private converterRespostaParaCep(cepNaResposta): Cep {
+
+    // this.form.get('cep').setValue(cepNaResposta.cep);
+    this.form.get('logradouro').setValue(cepNaResposta.logradouro);
+    this.form.get('complemento').setValue(cepNaResposta.complemento);
+    this.form.get('bairro').setValue(cepNaResposta.bairro);
+    this.form.get('cidade').setValue(cepNaResposta.localidade);
+    this.form.get('uf').setValue(cepNaResposta.uf);
+    return this.cepBusca;
   }
 }
 

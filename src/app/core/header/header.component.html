@@ -14,7 +14,7 @@
           <a href="#!" [routerLink]="['freelancer','lista']">Freenlacers</a>
         </li>
         <li>
-          <a href="#!" [routerLink]="['home']">Promoções</a>
+          <a href="#!" [routerLink]="['home']">Home</a>
         </li>
         <li *ngIf="usuario?.id != null">
           <a href="#!" [routerLink]="['/perfil/usuario']" [queryParams]="{id: usuario.id, tipoUsuario: usuario.tipoUsuario}">Perfil</a>

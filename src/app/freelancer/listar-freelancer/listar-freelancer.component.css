@@ -8,6 +8,17 @@
   transition: all .2s ease-in-out;
 }
 
+.card-header{
+  color: #EEEEEE;
+  background-color: rgb(35, 34, 36, 0.8);
+  font-family: Bradley Hand, cursive;
+}
+
+.fundo{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQUxnjEFiR2jn2teh2wDsr5IxtjKyq9Wbk1uaDByynYUg6q1obI");
+  width: auto;
+}
+
 .card:hover {
   /*box-shadow: 0 5px 22px 0 rgba(0,0,0,.25);*/
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);

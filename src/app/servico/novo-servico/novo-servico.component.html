@@ -1,51 +1,54 @@
-<form id="msform" class="card-body" [formGroup]="form" autocomplete="off">
-  <fieldset>
-    <div class="divcadastro">
-      <div class="img">
-        <img
-          src="https://render.fineartamerica.com/images/rendered/default/print/8.000/8.000/break/images-medium-5/barber-shop-or-hairdresser-background-seamless-pattern-with-hairdressing-scissors-annasqberg.jpg"
-          width="100%">
+<div class="fundo">
+  <form id="msform" class="card-body" [formGroup]="form" autocomplete="off">
+    <fieldset>
+      <div class="divcadastro">
+        <div class="img">
+          <img
+            src="https://render.fineartamerica.com/images/rendered/default/print/8.000/8.000/break/images-medium-5/barber-shop-or-hairdresser-background-seamless-pattern-with-hairdressing-scissors-annasqberg.jpg"
+            width="100%">
+        </div>
+
+        <h3 class="cadastro text-center m-4 card-header">Cadastro de Serviço</h3>
       </div>
 
-      <h3 class="cadastro text-center m-4 card-header">Cadastro de Serviço</h3>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <app-input id="nome" placeholder=" ex: Corte Simples" label="Nome do Serviço"
-                   formControlName="nome"
-                   [model]="form.get('nome')"></app-input>
+      <div class="row">
+        <div class="col-md-12">
+          <app-input id="nome" placeholder=" ex: Corte Simples" label="Nome do Serviço"
+                     formControlName="nome"
+                     [model]="form.get('nome')"></app-input>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <app-input id="descricao" placeholder=" Breve descrição (Opcional)" label="Descrição"
-                   formControlName="descricao"
-                   [model]="form.get('descricao')"></app-input>
+      <div class="row">
+        <div class="col-md-12">
+          <app-input id="descricao" placeholder=" Breve descrição (Opcional)" label="Descrição"
+                     formControlName="descricao"
+                     [model]="form.get('descricao')"></app-input>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <app-input id="valor" placeholder="ex: R$: 15,00" label="Preço"
-                   formControlName="valor"
-                   [model]="form.get('valor')"></app-input>
+      <div class="row">
+        <div class="col-md-12">
+          <app-input id="valor" placeholder="ex: R$: 15,00" label="Preço"
+                     formControlName="valor"
+                     [model]="form.get('valor')"></app-input>
+        </div>
       </div>
-    </div>
 
-    <div class="text-center">
+      <div class="text-center">
 
-      <div class="text-center m-3 text-center">
-        <button (click)="cadastrar()" class="btn btn-dark btn-block text-center" [disabled]="form.invalid">Cadastrar</button>
+        <div class="text-center m-3 text-center">
+          <button (click)="cadastrar()" class="btn btn-dark btn-block text-center" [disabled]="form.invalid">Cadastrar
+          </button>
+        </div>
+        <div class="text-center m-3 text-center">
+          <button (click)="cancelar()" class="btn btn-dark btn-block text-center">Cancelar</button>
+        </div>
       </div>
-      <div class="text-center m-3 text-center">
-        <button (click)="cancelar()" class="btn btn-dark btn-block text-center" >Cancelar</button>
-      </div>
-    </div>
 
-  </fieldset>
+    </fieldset>
 
-</form>
+  </form>
+</div>
 
 

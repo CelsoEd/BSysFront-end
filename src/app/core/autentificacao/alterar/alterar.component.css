@@ -1,0 +1,13 @@
+#boxText{
+  height: 100px;
+}
+.fundo{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRscf4cemai8IavJZL_hwofnA4JO4MOgIcGW-ye-E1wFf85p4eq");
+  width: auto;
+}
+.container {
+  background-color: rgba(39, 39, 39, 0.8);
+  color: #EEEEEE;
+  font-size: large;
+}
+

@@ -2,6 +2,7 @@ import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Barbearia} from '../../model/barbearia.model';
 import {BarbeariaService} from '../barbearia.service';
 import {Router} from '@angular/router';
+import {User} from '../../core/autentificacao/user';
 
 @Component({
   selector: 'app-listar-barbearias',
@@ -12,10 +13,13 @@ export class ListarBarbeariasComponent implements OnInit, OnChanges {
 
   barbeariasConsulta: Barbearia[];
   rows: any[] = [];
+  usuarioSessao: User;
 
   constructor(
     private router: Router,
     private barbeariaService: BarbeariaService) {
+    this.usuarioSessao = JSON.parse(localStorage.getItem('currentUser'));
+
   }
 
   ngOnInit() {

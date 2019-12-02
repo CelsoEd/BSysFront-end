@@ -6,4 +6,5 @@ export interface User {
   email: string;
   token: string;
   tipoUsuario: TipoUsuario;
+  update: number;
 }

@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Freelancer} from '../../model/freelancer.model';
 import {FreelancerService} from '../freelancer.service';
+import {User} from '../../core/autentificacao/user';
 
 @Component({
   selector: 'app-listar-freelancer',
@@ -11,8 +12,10 @@ export class ListarFreelancerComponent implements OnInit, OnChanges {
 
   freelancersConsulta: Freelancer[];
   rows: any[] = [];
+  usuarioSessao: User;
 
   constructor(private freelancerService: FreelancerService) {
+    this.usuarioSessao = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+
 // Navigation Variables
 $content-width: 1000px;
 $breakpoint: 799px;
@@ -13,7 +14,6 @@ $link-hover-color: #2581DC;
   height: $nav-height;
   background: $nav-background;
 }
-
 // Logo and branding
 .brand {
   position: absolute;
@@ -115,7 +115,8 @@ main span {
   display: block;
 }
 .menu {
-  background: #B5B5B5; /*fundo perfil*/
+  background: #262626; /*fundo perfil*/
+  color: #FFFFFF;
   height: 100vh;
   width: 240px;
   position: fixed;
@@ -156,7 +157,7 @@ main span {
   cursor: pointer;
 }
 .menu ul li:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color:#2581DC;
 }
 .menu ul li:focus {
   outline: none;

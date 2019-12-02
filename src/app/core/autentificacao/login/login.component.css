@@ -1,12 +1,21 @@
 .logo1{
   border-radius: 15px;
 }
+.card{
+  background-color: rgba(39, 39, 39, 0.8);
 
+}
 .container{
   width: 500px;
+  padding-top: 100px;
+  padding-bottom: 700px;
+  height: 200px;
+}
+.fundo{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRscf4cemai8IavJZL_hwofnA4JO4MOgIcGW-ye-E1wFf85p4eq");
 }
 .btn  {
-  background-color: rgba(7, 31, 51, 0.575);
+  background-color: rgba(1, 11, 19, 0.8);
   color: White;
   width: 100%;
   height:45px;

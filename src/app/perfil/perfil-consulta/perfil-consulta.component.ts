@@ -1,8 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import {User} from '../../core/autentificacao/user';
 import {PerfilService} from '../perfil.service';
 import {Usuario} from '../../model/usuario.model';
+import {TipoUsuario} from '../../util/enuns/tipo-usuario.enum';
+import {query} from '@angular/animations';
+import {Servico} from '../../model/servico.model';
+import {$} from 'protractor';
 
 @Component({
   selector: 'app-perfil-consulta',
@@ -14,6 +18,9 @@ export class PerfilConsultaComponent implements OnInit {
   userSession: User;
   usuario: Usuario;
   suscesso: number;
+  tipoUsuario: TipoUsuario;
+  update: any;
+  clienteConsulta: Usuario;
 
 
   constructor(private perfilService: PerfilService,
@@ -46,6 +53,27 @@ export class PerfilConsultaComponent implements OnInit {
   }
 
 
+  confirmar(id: number) {
+    this.perfilService.confirmarAgendamento(id).subscribe();
+    window.parent.location.reload();
+  }
+
+  cancelar(id: number) {
+    this.perfilService.cancelarAgendamento(id).subscribe();
+    window.parent.location.reload();
+  }
+
+  consultar(id: string) {
+    this.perfilService.consultaDadosCliente(id).subscribe(usuario => {
+      this.clienteConsulta = usuario;
+    });
+    alert(`Nome: ${this.clienteConsulta.nome},
+    Telefone: ${this.clienteConsulta.telefone}`);
+  }
 
 
+  reload(id: number) {
+    localStorage.setItem('update', 'sim');
+    this.update = localStorage.getItem('update');
+  }
 }

@@ -1,19 +1,24 @@
-<div class="container">
-  <h1 class="card-header text-center">Freelancers</h1>
-  <div class="row">
-    <div *ngFor="let freelancer of freelancersConsulta" class="col-4" apDarkenOnHover>
-      <div class="card" >
-        <div class="image">
-          <img src="https://logo.criativoon.com/wp-content/uploads/2016/07/logotipo-de-barbearia.png" width="100%">
-        </div>
-        <div class="text">
-          <div class="fab" [routerLink]="['/perfil/usuario']" [queryParams]="{id: freelancer.id, tipoUsuario: freelancer.tipoUsuario} ">&#43;</div>
-          <h3>{{freelancer.nome}}</h3>
-          <p>{{freelancer.endereco.logradouro}}, {{freelancer.endereco.complemento}} {{freelancer.endereco.numero}}, {{freelancer.endereco.bairro}}</p>
-          <p>{{freelancer.endereco.cidade}} - {{freelancer.endereco.uf}}</p>
-          <p>{{freelancer.endereco.cep}}</p>
-          <h2 *ngIf="freelancer?.descricaoPerfil"> Sobre </h2>
-          <p>{{freelancer.descricaoPerfil}}</p>
+<div class="fundo">
+  <div class="container">
+    <h1 class="card-header text-center">Freelancers</h1>
+    <div class="row">
+      <div *ngFor="let freelancer of freelancersConsulta" class="col-4" apDarkenOnHover>
+        <div class="card">
+          <div class="image">
+            <img src="https://logo.criativoon.com/wp-content/uploads/2016/07/logotipo-de-barbearia.png" width="100%">
+          </div>
+          <div class="text">
+            <div class="fab" *ngIf="this.usuarioSessao != null" [routerLink]="['/perfil/usuario']"
+                 [queryParams]="{id: freelancer.id, tipoUsuario: freelancer.tipoUsuario} ">&#43;
+            </div>
+            <h3>{{freelancer.nome}}</h3>
+            <p>{{freelancer.endereco.logradouro}}, {{freelancer.endereco.complemento}} {{freelancer.endereco.numero}}
+              , {{freelancer.endereco.bairro}}</p>
+            <p>{{freelancer.endereco.cidade}} - {{freelancer.endereco.uf}}</p>
+            <p>{{freelancer.endereco.cep}}</p>
+            <h2 *ngIf="freelancer?.descricaoPerfil"> Sobre </h2>
+            <p>{{freelancer.descricaoPerfil}}</p>
+          </div>
         </div>
       </div>
     </div>

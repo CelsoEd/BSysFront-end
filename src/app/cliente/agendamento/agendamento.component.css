@@ -15,11 +15,17 @@ p {
   color: grey;
 }
 
+.fundo{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQUxnjEFiR2jn2teh2wDsr5IxtjKyq9Wbk1uaDByynYUg6q1obI");
+  width: auto;
+}
+
 #msform {
-  width: 290px;
-  margin: 150px auto;
-  position: absolute;
-  margin-left: 350px;
+  width: 300px;
+  margin:  auto;
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 120px;
 }
 #msform fieldset {
   background: white;

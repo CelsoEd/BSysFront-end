@@ -49,6 +49,7 @@ export class AlterarComponent implements OnInit {
       cidade: ['', Validators.required],
       estado: ['', Validators.required],
       complemento: ['', Validators.required],
+      descricaoPerfil: ['', Validators.required]
     });
     if (this.user.tipoUsuario === 'BARBEARIA') {
       await this.autentificacaoService.consultaDadosBarbearia(this.user.id).subscribe(usuario => {

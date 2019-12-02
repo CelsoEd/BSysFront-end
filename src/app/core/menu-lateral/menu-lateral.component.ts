@@ -21,6 +21,7 @@ export class MenuLateralComponent implements OnInit {
 
   sair() {
     localStorage.clear();
-    window.parent.location.reload();
+    localStorage.setItem('update', 'sim');
+    this.route.navigate(['home']);
   }
 }

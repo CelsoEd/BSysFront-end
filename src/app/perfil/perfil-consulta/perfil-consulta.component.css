@@ -60,6 +60,7 @@ p{
   padding: 30px;
 }
 
+
 #invoice-top{min-height: 120px;}
 #invoice-mid{min-height: 120px;}
 #invoice-bot{ min-height: 250px;}
@@ -71,6 +72,11 @@ p{
   background: url(http://michaeltruong.ca/images/logo1.png) no-repeat;
   background-size: 60px 60px;
 }
+.fundo{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQUxnjEFiR2jn2teh2wDsr5IxtjKyq9Wbk1uaDByynYUg6q1obI");
+  width: auto;
+}
+
 .clientlogo{
   float: left;
   height: 60px;

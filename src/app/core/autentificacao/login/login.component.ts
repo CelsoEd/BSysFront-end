@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ɵCompiler_compileModuleAndAllComponentsAsync__POST_R3__} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AutentificacaoService} from '../autentificacao.service';
@@ -29,14 +29,13 @@ export class LoginComponent implements OnInit {
   }
 
 
-  login() {
-    this.autentificacaoService
+  async login() {
+    localStorage.setItem('update', 'sim');
+    await this.autentificacaoService
       .login(this.loginForm.value)
       .subscribe(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
-        // this.router.navigate(['home']);
-        __await(100);
-        window.parent.location.reload();
+        this.router.navigate(['home']);
       });
   }
 
